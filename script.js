@@ -1,12 +1,21 @@
 let dimension = 16; // default grid size to 16x16 #################### TO BE CHANGED ####################
 
-// Global variable
+// Global variable (default colour black)
+let colourSelected = "black";
 
+
+/* The event listeners */
 const erase = document.getElementById("eraseButton");
 erase.addEventListener("click", function() {
     eraseColouredCells();
 })
 
+const blackSelected = document.getElementById("black");
+blackSelected.addEventListener("click", function(){
+    colourSelected = "black";
+})
+
+// create the board with the specified dimensions
 createBoard(dimension);
 
 /*
@@ -35,7 +44,7 @@ function createBoard(size){
 
 
         cellDiv.addEventListener("mouseenter", (event) => {
-            colourCell((i+1), "black");
+            colourCell((i+1), colourSelected);
         });
 
         gridContainer.appendChild(cellDiv);
@@ -47,6 +56,9 @@ function createBoard(size){
 Set the background color of the cell once it has been hovered over
 */
 function colourCell(cellID, colour){
+    if(colour.toLowerCase() == "rainbow"){
+        // get a random colour and assign it to the variable
+    }
     let cell = document.getElementById(cellID);
     cell.style.backgroundColor = colour;
 }
