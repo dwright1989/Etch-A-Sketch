@@ -1,11 +1,13 @@
 #gridContainer{
-    width: 30%;
-    max-width:30%;
+    width: 600px;
+   /* max-width:30%;*/
     display:flex;
-    flex-flow: row wrap;
+    flex-wrap:wrap;
     margin: auto;
  
 }
+
+
 
 .border{
     border: 1px solid black;
