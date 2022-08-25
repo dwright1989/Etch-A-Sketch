@@ -1,4 +1,11 @@
-let dimension = 16; // default grid size to 16x16
+let dimension = 16; // default grid size to 16x16 #################### TO BE CHANGED ####################
+
+// Global variable
+
+const erase = document.getElementById("eraseButton");
+erase.addEventListener("click", function() {
+    eraseColouredCells();
+})
 
 createBoard(dimension);
 
@@ -42,4 +49,16 @@ Set the background color of the cell once it has been hovered over
 function colourCell(cellID, colour){
     let cell = document.getElementById(cellID);
     cell.style.backgroundColor = colour;
+}
+
+/*
+Erase the background color of all cells to start fresh
+*/
+function eraseColouredCells(){
+    let cells = document.getElementsByClassName("cell");
+    for (var i = 0; i < cells.length; i++) {
+        cells[i].style.backgroundColor = "white";
+    }
+       
+    
 }
