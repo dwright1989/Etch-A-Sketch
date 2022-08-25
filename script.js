@@ -16,6 +16,13 @@ const blackSelected = document.getElementById("black");
 blackSelected.addEventListener("click", function(){
     colourSelected = "000000";
 })
+
+// Select greyscale as the colour option
+const greyscaleSelected = document.getElementById("greyscale");
+greyscaleSelected.addEventListener("click", function(){
+    colourSelected = "greyscale";
+})
+
 // Select rainbow as the colour button
 const rainbowSelected = document.getElementById("rainbow");
 rainbowSelected.addEventListener("click", function(){
@@ -85,13 +92,34 @@ Set the background color of the cell once it has been hovered over
 */
 function colourCell(cellID){
     let colour = colourSelected;
-    //console.log("in the colour cell function and the colour selected is : " + colourSelected);
+    let cell = document.getElementById(cellID);
+    let opacityOfCell = cell.style.opacity;
     if(colourSelected.toLowerCase() == "rainbow"){
         // get a random colour and assign it to the variable
         colour = Math.floor(Math.random()*16777215).toString(16);
+        
     }
-    let cell = document.getElementById(cellID);
-    console.log("in the colour cell function and the colour selected is : " + "#"+colour);
+    
+    /*
+    if greyscale is selected, check what we are colouring and whether we need to change the opacity
+    */
+    else if(colourSelected.toLowerCase() == "greyscale"){
+        opacityOfCell = parseFloat(opacityOfCell); 
+        if(opacityOfCell>=0.1 && opacityOfCell<=0.9){            
+            let newOpacity = opacityOfCell + 0.1;
+            cell.style.opacity = newOpacity;
+        }else if(cell.style.backgroundColor!="#000000" && cell.style.backgroundColor != "black" && cell.style.backgroundColor!="rgb(0, 0, 0)")
+        {
+            cell.style.opacity = 0.1;
+        }
+        colour =  "000000";
+    }
+
+    // if a solid colour, make sure opacity goes back to full (1)
+    if(colourSelected.toLocaleLowerCase()!="greyscale"){
+        cell.style.opacity = 1;
+    }
+    
     cell.style.backgroundColor = "#"+colour;
 }
 
