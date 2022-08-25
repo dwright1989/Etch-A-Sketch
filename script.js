@@ -1,19 +1,28 @@
 let dimension = 16; // default grid size to 16x16 #################### TO BE CHANGED ####################
 
 // Global variable (default colour black)
-let colourSelected = "black";
+let colourSelected = "000000";
 
 
 /* The event listeners */
+// Erase Button
 const erase = document.getElementById("eraseButton");
 erase.addEventListener("click", function() {
     eraseColouredCells();
 })
 
+// Select black as the colour button
 const blackSelected = document.getElementById("black");
 blackSelected.addEventListener("click", function(){
-    colourSelected = "black";
+    colourSelected = "000000";
 })
+// Select rainbow as the colour button
+const rainbowSelected = document.getElementById("rainbow");
+rainbowSelected.addEventListener("click", function(){
+    console.log("the rainbow event listener has been activated");
+    colourSelected = "rainbow";
+})
+
 
 // create the board with the specified dimensions
 createBoard(dimension);
@@ -44,7 +53,7 @@ function createBoard(size){
 
 
         cellDiv.addEventListener("mouseenter", (event) => {
-            colourCell((i+1), colourSelected);
+            colourCell((i+1));
         });
 
         gridContainer.appendChild(cellDiv);
@@ -55,12 +64,16 @@ function createBoard(size){
 /*
 Set the background color of the cell once it has been hovered over
 */
-function colourCell(cellID, colour){
-    if(colour.toLowerCase() == "rainbow"){
+function colourCell(cellID){
+    let colour = colourSelected;
+    //console.log("in the colour cell function and the colour selected is : " + colourSelected);
+    if(colourSelected.toLowerCase() == "rainbow"){
         // get a random colour and assign it to the variable
+        colour = Math.floor(Math.random()*16777215).toString(16);
     }
     let cell = document.getElementById(cellID);
-    cell.style.backgroundColor = colour;
+    console.log("in the colour cell function and the colour selected is : " + "#"+colour);
+    cell.style.backgroundColor = "#"+colour;
 }
 
 /*
