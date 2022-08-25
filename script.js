@@ -25,8 +25,21 @@ function createBoard(size){
         
         // add an ID so each cell is identifiable
         cellDiv.setAttribute("id", i+1);
-        
+
+
+        cellDiv.addEventListener("mouseenter", (event) => {
+            colourCell((i+1), "black");
+        });
+
         gridContainer.appendChild(cellDiv);
         
     }
+}
+
+/*
+Set the background color of the cell once it has been hovered over
+*/
+function colourCell(cellID, colour){
+    let cell = document.getElementById(cellID);
+    cell.style.backgroundColor = colour;
 }
