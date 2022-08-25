@@ -1,4 +1,4 @@
-let dimension = 16; // default grid size to 16x16 #################### TO BE CHANGED ####################
+let dimension = 16;// default grid size to 16x16 
 
 // Global variable (default colour black)
 let colourSelected = "000000";
@@ -23,6 +23,16 @@ rainbowSelected.addEventListener("click", function(){
     colourSelected = "rainbow";
 })
 
+// Select the grid size
+const gridSizeSelected = document.getElementById("gridSize");
+gridSizeSelected.addEventListener("click", function(){
+    console.log("the slider has been activated");
+    dimension = gridSizeSelected.value;
+    console.log("the dimension is");
+    deleteBoard();
+    createBoard(dimension);
+})
+
 
 // create the board with the specified dimensions
 createBoard(dimension);
@@ -36,7 +46,7 @@ function createBoard(size){
     let numOfDivs = size*size;
 
     // set the correct flex-basis based on the dimension
-    let basis = 100/(size+1)+"%";
+    let basis = 100/(size)+"%";
     console.log("flexBasis " + basis);
 
     for(let i=0; i<numOfDivs; i++){
@@ -59,6 +69,15 @@ function createBoard(size){
         gridContainer.appendChild(cellDiv);
         
     }
+}
+
+
+/*
+Delete the board ready for the create of a new one
+*/
+function deleteBoard(){
+    let theContainer = document.getElementById("gridContainer");
+    theContainer.innerHTML = "";
 }
 
 /*

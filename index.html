@@ -16,10 +16,14 @@
         <button id="black">Black</button>
         <!-- Button to select sketch color to be random RGB -->
         <button id="rainbow">Rainbow</button>
-        
+
         <!-- Option to select board size -->
+        <div class="slidecontainer">
+            <input type="range" min="10" max="64" value="16" class="slider" id="gridSize">
+        </div>
+
         <!-- Button to erase and start fresh -->
-        <button id="eraseButton">Erase Board</button>
+        <button id="eraseButton">Clear</button>
     </div>
 
     <div id="gridContainer"></div>
