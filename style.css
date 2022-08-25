@@ -1,0 +1,13 @@
+#gridContainer{
+    aspect-ratio: 1/1;
+    
+ 
+}
+
+.border{
+    border: 1px solid black;
+}
+
+.rowDiv{
+    display:flex;
+}
