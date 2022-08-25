@@ -13,15 +13,6 @@ function createBoard(size){
     // set the correct flex-basis based on the dimension
     let basis = 100/(size+1)+"%";
     console.log("flexBasis " + basis);
-    /*const cells = document.querySelectorAll('.cell');
-    console.log("the cells: " + cells);
-
-
-    cells.forEach(cell => {
-
-        console.log("in the for each.  Cell: " + cell);
-        cell.style.flexBasis = basis;
-    });*/
 
     for(let i=0; i<numOfDivs; i++){
         // create a new row div in the DOM within the grid container
@@ -31,8 +22,10 @@ function createBoard(size){
         cellDiv.classList.add("cell");
         console.log("the cell div basis is: " + cellDiv.style.flexBasis)
         cellDiv.style.flexBasis = basis;
-        //cellDiv.innerHTML = "Cell " + (i+1);
+        
         // add an ID so each cell is identifiable
+        cellDiv.setAttribute("id", i+1);
+        
         gridContainer.appendChild(cellDiv);
         
     }
