@@ -51,6 +51,8 @@ or the fault of 16x16
 function createBoard(size){
     // create each div e.g. if 16x16 = 256
     let numOfDivs = size*size;
+    dimensionsDiv = document.getElementById("dimensionsDiv");
+    dimensionsDiv.innerHTML = size + " x " + size;
 
     // set the correct flex-basis based on the dimension
     let basis = 100/(size)+"%";

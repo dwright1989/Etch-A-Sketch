@@ -8,7 +8,8 @@
     <title>Etch-A-Sketch</title>
 </head>
 <body>
-    <header><h1>Etch-A-Sketch</h1></header>
+    <header><h1>Etch-A-Sketch</h1>
+    <div id="dimensionsDiv">16 x 16</div></header>
 
     <div id="buttonContainer">
         
@@ -18,23 +19,20 @@
         <button id="greyscale">Greyscale</button>
         <!-- Button to select sketch color to be random RGB -->
         <button id="rainbow">Rainbow</button>
-
+        <!-- Button to erase and start fresh -->
+        <button id="eraseButton">Clear</button>
+        <!-- Option to select board size -->
+        <div class="slidecontainer">
+            <p>Select size of pixels from large (16x16 canvas) to small (64x64 canvas). This will reset your drawing.</p>
+            <input type="range" min="10" max="64" value="16" class="slider" id="gridSize">
+        </div>
 
         
     </div>
 
     <div id="gridContainer"></div>
 
-    <div id="bottomButtonContaer">
-        <!-- Option to select board size -->
-        <div class="slidecontainer">
-            <input type="range" min="10" max="64" value="16" class="slider" id="gridSize">
-        </div>
-
-        <!-- Button to erase and start fresh -->
-        <button id="eraseButton">Clear</button>
-    </div>
-    
+     
 
     <script src="script.js"></script>
 </body>
