@@ -1,6 +1,9 @@
 #gridContainer{
-    aspect-ratio: 1/1;
-    
+    width: 30%;
+    max-width:30%;
+    display:flex;
+    flex-flow: row wrap;
+    margin: auto;
  
 }
 
@@ -8,6 +11,9 @@
     border: 1px solid black;
 }
 
-.rowDiv{
-    display:flex;
+.cell{
+    aspect-ratio: 1/1;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 5.8824%;
 }
